@@ -1,7 +1,7 @@
 // workingDays.test.js
 // We mock the DB pool so tests run without a real database connection
 
-jest.mock('./src/db/pool', () => ({
+jest.mock('../db/pool', () => ({
   query: jest.fn().mockResolvedValue([[
     { d: '2026-01-01' }, // New Year's Day
     { d: '2026-04-03' }, // Good Friday
@@ -10,7 +10,7 @@ jest.mock('./src/db/pool', () => ({
   ]])
 }));
 
-const { calcWorkingDays } = require('./src/utils/workingDays');
+const { calcWorkingDays } = require('./WorkingDays');
 
 describe('calcWorkingDays', () => {
 

@@ -21,7 +21,7 @@ async function calcWorkingDays(startDate, endDate) {
 
     while (current <= end) {
         const day = current.getDay(); // 0 = Sunday. 6 = Saturday
-        const iso = current.toISOString().slice(0, 10);
+        const iso = `${current.getFullYear()}-${String(current.getMonth()+1).padStart(2,'0')}-${String(current.getDate()).padStart(2,'0')}`;
 
         if (day !== 0 && day !== 6 && !holidays.has(iso)) {
             count++;
