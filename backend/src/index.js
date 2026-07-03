@@ -1,11 +1,12 @@
 require('dotenv').config();
 const express = require('express');
-const cors    = require('cors');
+const cors = require('cors');
 
-const authRoutes  = require('./routes/auth.routes');
-const meRoutes  = require('./routes/me.routes');
+const authRoutes = require('./routes/auth.routes');
+const meRoutes = require('./routes/me.routes');
 const applicationsRoutes = require('./routes/applications.routes');
 const managerRoutes = require('./routes/manager.routes');
+const hrRoutes = require('./routes/hr.routes');
 
 const app  = express();
 const PORT = process.env.PORT || 4000;
@@ -17,6 +18,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/me', meRoutes);
 app.use('/api/applications', applicationsRoutes);
 app.use('/api/manager', managerRoutes);
+app.use('/api/hr', hrRoutes);
 
 app.get('/health', (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
 
